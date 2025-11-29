@@ -18,8 +18,12 @@
             "dest": "/public/img/$1"
         },
         {
-            "src": "/fonts/(.*)",
-            "dest": "/public/fonts/$1"
+            "src": "/fonts/(.*\\.(ttf|otf|woff|woff2|eot))",
+            "dest": "/public/fonts/$1",
+            "headers": {
+                "Cache-Control": "public, max-age=31536000, immutable",
+                "Access-Control-Allow-Origin": "*"
+            }
         },
         {
             "src": "/favicon.ico",
